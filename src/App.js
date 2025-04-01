@@ -43,7 +43,6 @@ function App() {
       setComputerResult("win");
     }else{
       setComputerResult("tie");
-      
     }
   };
 
@@ -61,7 +60,8 @@ function App() {
     if(user.name == computer.name){
       return "tie"
     }else if(user.name== "Rock"){
-      return computer.name == "Scisors" ?"win":"lose" 
+      setComputerResult()
+      return computer.name == "Scissors" ?"win":"lose" 
     }else if(user.name =="Scissors") {
       return computer.name == "Paper"?"win":"lose"
     }else if(user.name == "Paper") {
