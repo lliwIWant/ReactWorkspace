@@ -1,0 +1,19 @@
+.box{
+  border:1px solid black;
+  width: 500px;
+
+  display: flex;
+  align-items:  center;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 450px;
+}
+
+.item-img{
+  width:400px;
+}
+
+.main{
+  display: flex;
+  justify-content: center;
+}
