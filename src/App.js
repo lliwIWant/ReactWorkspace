@@ -93,9 +93,9 @@ function App() {
       <div className="main">
         {/* onClick 값에 play()를 작성하면 클릭 여부 상관 없이 바로 실행되기 때문에 콜백함수 형태로 를 이용해야 한다. */}
         {/* 만약 play 함수명만 작성하면 클릭했을때 함수를 시작한다. */}
-            <button onClick={()=>play("scissors")}>가위</button>
-            <button onClick={()=>play("rock")}>바위</button>
-            <button onClick={()=>play("paper")}>보</button>
+            <button onClick={()=>play("scissors")}>✌️</button>
+            <button onClick={()=>play("rock")}>✊</button>
+            <button onClick={()=>play("paper")}>✋</button>
         </div>
     </div>
   );
