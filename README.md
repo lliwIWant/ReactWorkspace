@@ -1,3 +1,3 @@
 # Rock Scissoers Paper Game with Noona
 
-This project is a Rock Scisser Paper game for studying React 
+This project is a Rock Scissers Paper game for studying React 
