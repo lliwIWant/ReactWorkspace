@@ -14,7 +14,7 @@ import TryAgain from "./compoent/TryAgain";
 let userCount = 0;
 let computerCount = 0;
 let times = 0;
-alert("총 열번의 기회가 있습니다!")
+
 
 const choice = {
   rock:{
