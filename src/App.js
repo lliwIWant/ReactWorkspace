@@ -1,7 +1,8 @@
 import {useState} from "react";
 import './App.css';
 import Box from './compoent/Box';
-
+import Card from './compoent/Card';
+import TryAgain from "./compoent/TryAgain";
 
 // 1. 박스 2개 (타이틀, 사진, 결과과)
 // 2. 가위 바위 보 버튼 생성
@@ -9,6 +10,11 @@ import Box from './compoent/Box';
 //4. 컴퓨터는 랜덤하게 아이템 선택이 된다.
 //5. 3 4 의 결과를 가지고 누가 이겼는지 승패를 따진다
 //6. 승패 결과에 따라 테두리 색이 바뀐다(이기면-초록, 지면-빨강 비기면-검은색)
+
+let userCount = 0;
+let computerCount = 0;
+let times = 0;
+alert("총 열번의 기회가 있습니다!")
 
 const choice = {
   rock:{
@@ -25,25 +31,35 @@ const choice = {
   }
 }
 
+const defaultChoice = {
+  name: "none",
+  img: "https://velog.velcdn.com/images/artwoojin/post/c23d84bc-eaa1-4362-94e6-f62b8d90514f/image.gif"
+};
+
 function App() {
-  const[ userSelect, setUserSelect] = useState(null);
-  const [computerSelect, setComputerSelect] =useState(null);
+  const[ userSelect, setUserSelect] = useState(defaultChoice);
+  const [computerSelect, setComputerSelect] =useState(defaultChoice);
   const[result, setResult] =useState("");
   const[computerResult, setComputerResult] = useState("");
   
   const play= (userChoice)=>{
+    console.log(userChoice);
     setUserSelect(choice[userChoice])
     let computerChoice = randomChoice();
     setComputerSelect(computerChoice);
-
+    
     setResult(judgement(choice[userChoice], computerChoice));
     if(judgement(choice[userChoice], computerChoice) === "win"){
       setComputerResult("lose");
+      userCount ++;
     }else if(judgement(choice[userChoice], computerChoice) === "lose"){
       setComputerResult("win");
+      computerCount ++;
     }else{
       setComputerResult("tie");
     }
+
+    times++;
   };
 
   const judgement =(user, computer)=>{
@@ -84,18 +100,42 @@ function App() {
     return choice[final]
   }
 
+
+  const retry =()=>{
+    
+  }
+
   return (
-    <div>
-      <div className="main">
-        <Box title="You" item={userSelect} result={result}/>
-        <Box title="computer" item={computerSelect} result={computerResult} />
+    <div className="whole">
+      <div className="main background">
+        <Box title="You" item={userSelect} result={result} count={userCount} times={times}/>
+        <Box title="computer" item={computerSelect} result={computerResult} count={computerCount}  times={times}/>
       </div>
       <div className="main">
         {/* onClick 값에 play()를 작성하면 클릭 여부 상관 없이 바로 실행되기 때문에 콜백함수 형태로 를 이용해야 한다. */}
         {/* 만약 play 함수명만 작성하면 클릭했을때 함수를 시작한다. */}
-            <button onClick={()=>play("scissors")}>✌️</button>
+            {/* <button onClick={()=>play("scissors")}>✌️</button>
             <button onClick={()=>play("rock")}>✊</button>
             <button onClick={()=>play("paper")}>✋</button>
+ */}
+            <Card click={()=>play("rock")} object={choice.rock}/>
+            <Card click={()=>play("scissors")} object={choice.scissors}/>
+            <Card click={()=>play("paper")} object={choice.paper}/>
+            <TryAgain click={() => {
+
+                if(times!=0){
+                  setUserSelect(defaultChoice);
+                  setComputerSelect(defaultChoice);
+                  setResult("");
+                  setComputerResult("");
+                  userCount =0;
+                  computerCount =0;
+                  times=0;
+                }else{
+                  alert("승패가 결정나지 않았어요.")
+                }
+              }}/>
+
         </div>
     </div>
   );

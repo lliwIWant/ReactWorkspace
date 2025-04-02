@@ -1,24 +1,146 @@
+.whole{
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+
+}
+.background{background-color: #88cbff5b; width: 100%;}
+
 .box{
-  border:1px solid black;
+  border:2px solid #ccc;
+  border-radius: 10px ;
   width: 500px;
+  background-color: white;
 
   display: flex;
   align-items:  center;
   justify-content: space-between;
   flex-direction: column;
   height: 450px;
+
+  margin: 30px;
+
+  transition: box-shadow 0.3s ease;
+
+  position: relative;
 }
 
-.item-img{
-  width:400px;
+.count{
+  position: absolute;
+  left: 0; right:0; top:0; bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 200px;
+  font-weight: 500;
+  filter: opacity(0.5);
 }
+
+
+.item-img {
+  width: 250px;
+  height: 250px;
+
+  transition: filter 0.5s ease;
+}
+.gray{filter: grayscale(100%);  }
 
 .main{
   display: flex;
   justify-content: center;
+  margin: 50px 0;
+
 }
 
 button{
   border: 0;
   outline: 0;
 }
+
+
+/* ------------------------------------------- */
+.card{
+  cursor: pointer;
+  width:350px;
+  height: 400px;
+  border: 2px solid #797b7f5c;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255, 255, 255);
+
+  transition: transform 0.5s ease;
+
+  margin: 20px;
+}
+
+.cardImg{
+  width: 300px;
+}
+.card:hover{
+  transform: translateY(-50px);
+}
+.card:active{
+  box-shadow: 0px 0px 10px rgb(188, 193, 255);
+}
+.card.move {
+  transform: translateY(-50px);
+  box-shadow: 0px 0px 10px rgb(188, 193, 255);
+}
+
+/* ------------------------------------------- */
+.retry{
+  position: fixed;
+  top: 260px;
+  right: 0;
+  background-color: white;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+
+  cursor: pointer;
+  transition: width 0.3s ease;
+}
+
+.retry:hover{
+  width: 110px;
+}
+.retry>span{
+  white-space: nowrap;
+}
+
+
+.retry>img{  width: 30px;
+  height: 30px; }
+
+/* 승패 색 */
+.box.tie{
+  border : 2px solid #ccc;
+  box-shadow: 0 0 10px ;
+}
+.text.tie{color: #ccc;}
+
+.box.win{
+  border: 2px solid green;
+  box-shadow: 0 0 10px green;
+}
+.text.win{ color: green;}
+
+.box.lose{
+  border: 2px solid red;
+  box-shadow: 0px 0px 10px red ;
+}
+.text.lose{color:red;}
