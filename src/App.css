@@ -64,24 +64,33 @@ button{
 /* ------------------------------------------- */
 .card{
   cursor: pointer;
-  width:350px;
+  width: 100%;
+  height: 100%;
+  max-width:350px;
   height: 400px;
+  min-width: 80px;
+  min-height: 100px;  
   border: 2px solid #797b7f5c;
   border-radius: 10px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   background-color: rgb(255, 255, 255);
 
   transition: transform 0.5s ease;
 
   margin: 20px;
+
 }
 
 .cardImg{
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
+  min-width: 70px;
+  border-radius: 10px;
+  margin-top: 10px;
 }
 .card:hover{
   transform: translateY(-50px);
@@ -144,3 +153,76 @@ button{
   box-shadow: 0px 0px 10px red ;
 }
 .text.lose{color:red;}
+
+
+@media (max-width: 768px) {
+  .font{font-size: 15px;}
+  .whole {
+    overflow: auto;
+    position: relative;
+    height: auto;
+  }
+
+  .background {
+    background-color: #88cbff5b;
+    width: 100%;
+  }
+
+  .box {
+    width: 150px;
+    height: 180px;
+    margin: 15px 10px;
+  }
+
+  .item-img {
+    width: 100px;
+    height: 90px;
+  }
+
+  .main {
+    align-items: center;
+    margin: 20px 0;
+  }
+
+  .card {
+    width: 80px;
+    height: 100px;
+    margin-top: 50px;
+  }
+  .card:hover{
+    transform: translateY(0);
+  }
+  .card:active{
+    box-shadow: 0px 0px 10px rgb(188, 193, 255);
+  }
+
+  .cardImg {
+    width: 70px;
+    height: 50px;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 10px 15px;
+  }
+
+  .count {
+    top:-20px;
+    font-size: 50px;
+  }
+
+  .retry {
+    top: auto;
+    bottom: 20px;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 110px;
+    height: 30px;
+  }
+
+  .retry > img {
+    width: 30px;
+    height: 30px;
+  }
+}

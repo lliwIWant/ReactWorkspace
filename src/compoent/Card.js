@@ -4,7 +4,7 @@ const Card = (props) => {
   return (
     <div className='card' onClick={props.click}>
         <img className='cardImg' src={props.object.img}/> 
-        <h2>{props.object.name}</h2>
+        <h2 className='font'>{props.object.name}</h2>
     </div>
   )
 }
