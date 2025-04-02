@@ -15,6 +15,7 @@ let userCount = 0;
 let computerCount = 0;
 let times = 0;
 
+
 const choice = {
   rock:{
     name: "Rock",
